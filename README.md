@@ -1,33 +1,42 @@
-# Roblox-Function-Argument-Checker
-checks for all arguments for a function
+Roblox Function Argument Checker
 
-This is module script can easily be called with :Check(). 
+A simple module for validating function arguments in Roblox Lua.
 
-# It takes 3 arguments.
+How it works
 
-#1: The value you want to check
+The module exposes a :Check() function that takes three parameters:
 
-#2 The expected type for the value (boolean, function, number, etc)
+1. The value to check  
+2. The expected type as a string
+3. The argument index (used for error messages)
 
-#3 The argumment that is being checked.
+It returns two values:
+- true if the value matches the type, otherwise false
+- An error message if the check fails
 
-Example function:
+Example:
+
+local Checker = require(game:GetService("ReplicatedStorage").Checker)
 
 local function hi(name)
-  local result, err = Checker:Check(name, "string", 1)
-  assert(result, err)
+	local result, err = Checker:Check(name, "string", 1)
+	assert(result, err)
 
-  print("Hello, "..name.."!")
+	print("hello " .. name .. "!")
 end
 
-Example calls for function:
+-- Example usage:
 
-#1
 hi(false)
-output:
-Argument #1 execpts a string, but boolean was given.
+-- Output:
+-- Argument #1 expects a string, but boolean was given.
 
-#2
 hi("world")
-output:
-Hello, world!
+-- Output:
+-- Hello, world!
+
+Notes
+
+- Helps avoid repetitive argument checks in functions.
+- Can be reused across multiple modules and systems.
+- Doesn't throw errors automatically - use with assert() or handle how you want.
