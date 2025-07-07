@@ -2,7 +2,7 @@
 
 A simple module for validating function arguments in Roblox.
 
-## How it works:
+How it works:
 
 The module gives a :Check() function that takes three parameters:
 
