@@ -19,6 +19,7 @@ Example:
 local Checker = require(game:GetService("ReplicatedStorage").Checker)
 
 local function hi(name)
+
 	local result, err = Checker:Check(name, "string", 1)
 	assert(result, err)
 
